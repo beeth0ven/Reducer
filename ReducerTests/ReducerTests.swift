@@ -11,26 +11,63 @@ import XCTest
 
 class ReducerTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
     
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        struct Increase: Action {}
+        struct Decrease: Action {}
+        
+        let numberStore = Store<Int>(
+            state: 0,
+            reducer: { (state, action) in
+                switch action {
+                case _ as Increase:
+                    return state + 1
+                case _ as Decrease:
+                    return state - 1
+                default:
+                    return state
+                }
+        })
+        
+        struct Toggle: Action {}
+        
+        let boolStore = Store<Bool>(
+            state: false,
+            reducer: { (state, action) in
+                switch action {
+                case _ as Toggle:
+                    return !state
+                default:
+                    return state
+                }
+        })
+        
+        let composeStore = ComposeStore(store0: numberStore, store1: boolStore)
+        
+        numberStore.subscribe { (state) in
+            print("Number State:", state)
+        }
+        
+        boolStore.subscribe { (state) in
+            print("Bool State:", state)
+        }
+        
+        composeStore.subscribe { (state) in
+            print("Compose State:", state)
+        }
+        
+        print("--------Increase--------")
+        numberStore.dispatch(action: Increase())
+        print("--------Decrease--------")
+        numberStore.dispatch(action: Decrease())
+        print("--------Toggle--------")
+        boolStore.dispatch(action: Toggle())
+        print("--------Compose Toggle--------")
+        composeStore.dispatch(action: Toggle())
+        print("--------End--------")
+
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
     
 }

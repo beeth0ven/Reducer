@@ -10,6 +10,7 @@
 		45E3A9AB1FA20CD1005D625B /* Reducer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E3A9A11FA20CD1005D625B /* Reducer.framework */; };
 		45E3A9B01FA20CD1005D625B /* ReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E3A9AF1FA20CD1005D625B /* ReducerTests.swift */; };
 		45E3A9B21FA20CD1005D625B /* Reducer.h in Headers */ = {isa = PBXBuildFile; fileRef = 45E3A9A41FA20CD1005D625B /* Reducer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		45E3A9BC1FA20D48005D625B /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E3A9BB1FA20D48005D625B /* Reducer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		45E3A9AA1FA20CD1005D625B /* ReducerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReducerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45E3A9AF1FA20CD1005D625B /* ReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReducerTests.swift; sourceTree = "<group>"; };
 		45E3A9B11FA20CD1005D625B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45E3A9BB1FA20D48005D625B /* Reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +55,7 @@
 		45E3A9971FA20CD1005D625B = {
 			isa = PBXGroup;
 			children = (
-				45E3A9A31FA20CD1005D625B /* Reducer */,
+				45E3A9A31FA20CD1005D625B /* Source */,
 				45E3A9AE1FA20CD1005D625B /* ReducerTests */,
 				45E3A9A21FA20CD1005D625B /* Products */,
 			);
@@ -68,13 +70,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		45E3A9A31FA20CD1005D625B /* Reducer */ = {
+		45E3A9A31FA20CD1005D625B /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				45E3A9BB1FA20D48005D625B /* Reducer.swift */,
 				45E3A9A41FA20CD1005D625B /* Reducer.h */,
 				45E3A9A51FA20CD1005D625B /* Info.plist */,
 			);
-			path = Reducer;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		45E3A9AE1FA20CD1005D625B /* ReducerTests */ = {
@@ -148,6 +151,7 @@
 				TargetAttributes = {
 					45E3A9A01FA20CD1005D625B = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					45E3A9A91FA20CD1005D625B = {
@@ -196,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45E3A9BC1FA20D48005D625B /* Reducer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +339,7 @@
 		45E3A9B61FA20CD1005D625B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -341,12 +347,13 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Reducer/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.beeth0ven.Reducer;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -355,6 +362,7 @@
 		45E3A9B71FA20CD1005D625B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -362,7 +370,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Reducer/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.beeth0ven.Reducer;
@@ -376,6 +384,7 @@
 		45E3A9B91FA20CD1005D625B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6BDKUNMM63;
 				INFOPLIST_FILE = ReducerTests/Info.plist;
@@ -390,6 +399,7 @@
 		45E3A9BA1FA20CD1005D625B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6BDKUNMM63;
 				INFOPLIST_FILE = ReducerTests/Info.plist;
